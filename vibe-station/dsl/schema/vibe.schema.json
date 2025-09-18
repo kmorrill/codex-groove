@@ -1,0 +1,144 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "VibeStationScore",
+  "type": "object",
+  "required": ["version", "bpm", "tracks"],
+  "properties": {
+    "version": {
+      "type": "string",
+      "enum": ["0.2"]
+    },
+    "bpm": {
+      "type": "number",
+      "minimum": 20,
+      "maximum": 400
+    },
+    "swing": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 0.5,
+      "default": 0
+    },
+    "scale": {
+      "type": "string"
+    },
+    "clock": {
+      "type": "object",
+      "required": ["bars", "ppq"],
+      "properties": {
+        "bars": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "ppq": {
+          "type": "integer",
+          "minimum": 24
+        }
+      }
+    },
+    "tracks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "type", "engine"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9_-]+$"
+          },
+          "type": {
+            "type": "string",
+            "enum": ["synth", "sample"]
+          },
+          "engine": {
+            "type": "string"
+          },
+          "pattern": {
+            "type": "string"
+          },
+          "gain": {
+            "type": "number",
+            "minimum": -60,
+            "maximum": 12
+          },
+          "notes": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["bar", "step", "len", "midi"],
+              "properties": {
+                "bar": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "step": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "len": {
+                  "type": "string"
+                },
+                "midi": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 127
+                },
+                "vel": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                }
+              }
+            }
+          },
+          "rate": {
+            "type": "number"
+          },
+          "src": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "scenes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "bars"],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "bars": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "minItems": 2,
+            "maxItems": 2
+          },
+          "mutes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "serverPort": 57120,
+  "clientPort": 57121,
+  "wsPort": 7777,
+  "lookAheadMs": 120,
+  "sampleRate": 48000,
+  "blockSize": 64,
+  "buffers": {
+    "max": 1024
+  },
+  "render": {
+    "outputRoot": "renders",
+    "loudnessTarget": -14,
+    "commercial": false
+  }
+}

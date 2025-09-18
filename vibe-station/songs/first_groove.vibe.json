@@ -1,0 +1,35 @@
+{
+  "version": "0.2",
+  "bpm": 124,
+  "swing": 0.04,
+  "scale": "dorian",
+  "clock": { "bars": 64, "ppq": 480 },
+  "tracks": [
+    {
+      "id": "kick",
+      "type": "synth",
+      "engine": "Kick808",
+      "pattern": "x--- x--- x--- x---",
+      "gain": -3.0
+    },
+    {
+      "id": "snare",
+      "type": "synth",
+      "engine": "Snare",
+      "pattern": "---- x--- ---- x---",
+      "gain": -6.0
+    },
+    {
+      "id": "hat",
+      "type": "synth",
+      "engine": "Hat",
+      "pattern": "-x-x -x-x -x-x -x-x",
+      "gain": -12.0
+    }
+  ],
+  "scenes": [
+    { "name": "intro", "bars": [1, 16], "mutes": ["snare"] },
+    { "name": "drop",  "bars": [17, 48] }
+  ],
+  "metadata": { "title": "My Groove", "tags": ["lofi", "techno"] }
+}
